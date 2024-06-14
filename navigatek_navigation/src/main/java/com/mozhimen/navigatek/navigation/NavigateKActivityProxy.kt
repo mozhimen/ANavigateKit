@@ -7,6 +7,7 @@ import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.elemk.androidx.lifecycle.bases.BaseWakeBefDestroyLifecycleObserver
 import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.navigatek.navigation.helpers.getDestinationId
 import com.mozhimen.navigatek.navigation.helpers.startDestinationId
 import com.mozhimen.navigatek.navigation.mos.MNavigateKConfig
@@ -28,7 +29,7 @@ class NavigateKActivityProxy<A>(
 ) : BaseWakeBefDestroyLifecycleObserver() where A : FragmentActivity, A : LifecycleOwner {
     ///////////////////////////////////////////////////////////////////////////////////////
 
-    private val _navigateKActivity: NavigateKActivity by lazy { NavigateKActivity(_activity) }
+    private val _navigateKActivity: NavigateKActivity by lazy_ofNone { NavigateKActivity(_activity) }
     private var _navController: NavController? = null
 
     ///////////////////////////////////////////////////////////////////////////////////////
