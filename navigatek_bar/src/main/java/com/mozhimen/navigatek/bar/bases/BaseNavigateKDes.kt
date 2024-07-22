@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import com.mozhimen.basick.elemk.commons.I_AListener
 
-open class BaseNavigateKDes(
+open class BaseNavigateKDes constructor(
     val id: String,
     val name: String,
     var fragmentClazzName: String,
