@@ -1,17 +1,16 @@
 package com.mozhimen.navigatek.start.impls
 
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.basick.elemk.android.content.cons.CIntent
+import com.mozhimen.basick.utilk.android.content.UtilKIntentWrapper
 import com.mozhimen.basick.utilk.android.content.UtilKPackageManager
 import com.mozhimen.basick.utilk.android.content.startContext
+import com.mozhimen.basick.utilk.android.content.startContext_throw
 import com.mozhimen.basick.utilk.commons.IUtilK
-import com.mozhimen.navigatek.start.commons.IProvider
+import com.mozhimen.navigatek.start.commons.IStartProvider
 
 
 /**
@@ -21,7 +20,7 @@ import com.mozhimen.navigatek.start.commons.IProvider
  * @Date 2023/12/29 1:14
  * @Version 1.0
  */
-object FacebookProvider : IProvider, IUtilK {
+object StartProviderFacebook : IStartProvider, IUtilK {
     override val PACKAGE_NAME = "com.facebook.katana"
 
     /////////////////////////////////////////////////////////////
@@ -29,14 +28,12 @@ object FacebookProvider : IProvider, IUtilK {
     @JvmStatic
     fun startContext(context: Context) {
         var intent = context.packageManager.getLaunchIntentForPackage(PACKAGE_NAME)
-        if (intent == null) {
-            intent = Intent()
-            intent.action = "android.intent.action.VIEW"
-            intent.data = Uri.parse("http://facebook.com/")// 打开url
+        if (intent != null) {
+            /* intent.flags =
+     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED or Intent.FLAG_ACTIVITY_CLEAR_TOP*/
             context.startContext(intent)
         } else {
-            /* intent.flags =
-                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED or Intent.FLAG_ACTIVITY_CLEAR_TOP*/
+            intent = UtilKIntentWrapper.getViewStrUrl("http://facebook.com/")// 打开url
             context.startContext(intent)
         }
     }
@@ -49,23 +46,23 @@ object FacebookProvider : IProvider, IUtilK {
     @JvmStatic
     fun startContext(context: Context, id: String, name: String) {
         val strPageUrl = "http://www.facebook.com/${name}"
+        var intent: Intent
         try {
-            context.startContext(Intent(CIntent.ACTION_VIEW, Uri.parse(getFacebookDetailURL(context, strPageUrl).also { UtilKLogWrapper.d(TAG, "startContext: getFacebookDetailURL $it") })))
+            intent = UtilKIntentWrapper.getViewStrUrl(getFacebookDetailURL(context, strPageUrl).also { UtilKLogWrapper.d(TAG, "startContext: getFacebookDetailURL $it") })
+            context.startContext_throw(intent)
         } catch (e: Exception) {
             e.printStackTrace()
-            // 处理Facebook应用未安装的情况
-            // 可以在这里打开网页版Facebook或提示用户安装Facebook应用
+            UtilKLogWrapper.e(TAG, "startContext: 1", e)
+            // 处理Facebook应用未安装的情况// 可以在这里打开网页版Facebook或提示用户安装Facebook应用
             try {
-                val intent = Intent(CIntent.ACTION_VIEW, Uri.parse("fb://page/$id"))
-                intent.setPackage(PACKAGE_NAME) // 指定要使用Facebook应用打开链接
-                context.startContext(intent)
+                intent = UtilKIntentWrapper.getViewStrUrl("fb://page/$id").apply { setPackage(PACKAGE_NAME) }// 指定要使用Facebook应用打开链接
+                context.startContext_throw(intent)
             } catch (e: Exception) {
                 e.printStackTrace()
-                try {
-                    context.startContext(Intent(Intent.ACTION_VIEW, Uri.parse(strPageUrl)))
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                UtilKLogWrapper.e(TAG, "startContext: 2", e)
+                //
+                intent = UtilKIntentWrapper.getViewStrUrl(strPageUrl)
+                context.startContext(intent)
             }
         }
     }
@@ -81,8 +78,9 @@ object FacebookProvider : IProvider, IUtilK {
             if (applicationInfo.enabled/*applicationInfo() >= 3002850*/) { //newer versions of fb app
                 return "fb://facewebmodal/f?href=$strPageUrl"
             }
-        } catch (e: PackageManager.NameNotFoundException) {
+        } catch (e: Exception) {
             e.printStackTrace()
+            UtilKLogWrapper.e(TAG, "getFacebookDetailURL: ", e)
         }
         return strPageUrl
     }

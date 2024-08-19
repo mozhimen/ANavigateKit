@@ -1,8 +1,8 @@
 package com.mozhimen.navigatek.start
 
-import com.mozhimen.navigatek.start.impls.FacebookProvider
-import com.mozhimen.navigatek.start.impls.TelegramProvider
-import com.mozhimen.navigatek.start.impls.TwitterProvider
+import com.mozhimen.navigatek.start.impls.StartProviderFacebook
+import com.mozhimen.navigatek.start.impls.StartProviderTelegram
+import com.mozhimen.navigatek.start.impls.StartProviderTwitter
 
 /**
  * @ClassName NavigateKStart
@@ -12,7 +12,7 @@ import com.mozhimen.navigatek.start.impls.TwitterProvider
  * @Version 1.0
  */
 object NavigateKStart {
-    fun getFaceBook(): FacebookProvider = FacebookProvider
-    fun getTwitter(): TwitterProvider = TwitterProvider
-    fun getTelegram(): TelegramProvider = TelegramProvider
+    fun getFaceBook(): StartProviderFacebook = StartProviderFacebook
+    fun getTwitter(): StartProviderTwitter = StartProviderTwitter
+    fun getTelegram(): StartProviderTelegram = StartProviderTelegram
 }
