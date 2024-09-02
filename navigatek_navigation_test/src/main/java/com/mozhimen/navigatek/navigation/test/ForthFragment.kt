@@ -2,10 +2,10 @@ package com.mozhimen.navigatek.navigation.test
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.elemk.androidx.fragment.bases.databinding.BaseFragmentVDB
-import com.mozhimen.basick.elemk.mos.MKey
-import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.elemk.androidx.fragment.bases.databinding.BaseFragmentVDB
+import com.mozhimen.kotlin.elemk.mos.MKey
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.navigatek.navigation.helpers.getDestinationId
 import com.mozhimen.navigatek.navigation.test.databinding.FragmentThirdBinding
 import com.mozhimen.navigatek.navigation.test.databinding.ItemNavigatekBinding

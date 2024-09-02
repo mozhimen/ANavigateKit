@@ -1,7 +1,7 @@
 package com.mozhimen.navigatek.start.test
 
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.viewbinding.BaseActivityVB
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.viewbinding.BaseActivityVB
 import com.mozhimen.navigatek.start.NavigateKStart
 import com.mozhimen.navigatek.start.test.databinding.ActivityMainBinding
 

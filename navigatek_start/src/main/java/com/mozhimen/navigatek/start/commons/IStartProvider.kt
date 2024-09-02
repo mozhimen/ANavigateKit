@@ -1,6 +1,6 @@
 package com.mozhimen.navigatek.start.commons
 
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 /**
  * @ClassName IProvider

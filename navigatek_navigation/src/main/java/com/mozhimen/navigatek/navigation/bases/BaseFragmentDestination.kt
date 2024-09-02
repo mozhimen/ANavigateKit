@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDestination
 import androidx.navigation.NavigatorProvider
 import androidx.navigation.fragment.R
-import com.mozhimen.basick.utilk.android.content.UtilKResources
+import com.mozhimen.kotlin.utilk.android.content.UtilKResources
 
 /**
  * @ClassName BaseDestination

@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import com.mozhimen.basick.utilk.android.util.w
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.android.util.w
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 /**
  * @ClassName DestinationUtil

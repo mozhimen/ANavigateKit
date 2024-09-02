@@ -3,8 +3,8 @@ package com.mozhimen.navigatek.navigation.test
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.elemk.androidx.fragment.bases.databinding.BaseFragmentVDB
-import com.mozhimen.basick.elemk.mos.MKey
+import com.mozhimen.kotlin.elemk.androidx.fragment.bases.databinding.BaseFragmentVDB
+import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.navigatek.navigation.helpers.getDestinationId
 import com.mozhimen.navigatek.navigation.test.databinding.FragmentFirstBinding
 import com.mozhimen.navigatek.navigation.test.databinding.ItemNavigatekBinding

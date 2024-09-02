@@ -1,6 +1,6 @@
 package com.mozhimen.navigatek.navigation.test
 
-import com.mozhimen.basick.utilk.kotlin.printlog
+import com.mozhimen.kotlin.utilk.kotlin.printlog
 import com.mozhimen.navigatek.navigation.helpers.DestinationUtil
 import org.junit.Test
 

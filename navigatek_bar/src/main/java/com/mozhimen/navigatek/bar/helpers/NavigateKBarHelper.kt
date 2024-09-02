@@ -1,8 +1,8 @@
 package com.mozhimen.navigatek.bar.helpers
 
 import androidx.annotation.WorkerThread
-import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.elemk.commons.ISuspend_AListener
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.elemk.commons.ISuspend_AListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

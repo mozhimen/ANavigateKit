@@ -2,7 +2,7 @@ package com.mozhimen.navigatek.navigation.temps
 
 import android.content.Context
 import android.os.Bundle
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -10,9 +10,9 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
-import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
-import com.mozhimen.basick.utilk.android.content.UtilKContext
-import com.mozhimen.basick.utilk.android.content.UtilKPackage
+import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
+import com.mozhimen.kotlin.utilk.android.content.UtilKContext
+import com.mozhimen.kotlin.utilk.android.content.UtilKPackage
 import com.mozhimen.navigatek.navigation.bases.BaseFragmentDestination
 import com.mozhimen.navigatek.navigation.bases.BaseExtras
 import com.mozhimen.navigatek.navigation.bases.BaseFragmentNavigator

@@ -2,7 +2,7 @@ package com.mozhimen.navigatek.bar.bases
 
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
-import com.mozhimen.basick.elemk.commons.I_AListener
+import com.mozhimen.kotlin.elemk.commons.I_AListener
 
 open class BaseNavigateKDes constructor(
     val id: String,

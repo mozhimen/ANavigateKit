@@ -2,14 +2,14 @@ package com.mozhimen.navigatek.navigation.helpers
 
 import android.annotation.SuppressLint
 import android.content.ComponentName
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.*
 import androidx.navigation.fragment.DialogFragmentNavigator
 import androidx.navigation.fragment.FragmentNavigator
-import com.mozhimen.basick.utilk.android.content.UtilKContext
-import com.mozhimen.basick.utilk.commons.IUtilK
-import com.mozhimen.basick.utilk.kotlin.collections.joinT2list
+import com.mozhimen.kotlin.utilk.android.content.UtilKContext
+import com.mozhimen.kotlin.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2list
 import com.mozhimen.navigatek.navigation.mos.MNavigateKConfig
 import com.mozhimen.navigatek.navigation.mos.MNavigateKPageInfo
 import com.mozhimen.navigatek.navigation.temps.ShowHideFragmentNavigator
