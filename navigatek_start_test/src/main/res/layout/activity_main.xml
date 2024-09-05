@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
 
     <Button
-        style="@style/StyleK_Btn"
-        android:onClick="goFacebook"
-        android:text="goFacebook"
+        android:id="@+id/btn_jump_next_page_params"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转下一页(传参)"
         tools:ignore="HardcodedText" />
 
     <Button
-        style="@style/StyleK_Btn"
-        android:onClick="goTelegram"
-        android:text="goTelegram"
+        android:id="@+id/btn_jump_next_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转下一页(需要回调)"
         tools:ignore="HardcodedText" />
+
     <Button
-        style="@style/StyleK_Btn"
-        android:onClick="goTwitter"
-        android:text="goTwitter"
+        android:id="@+id/btn_jump_next_page_need_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转下一页(需要登录)"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

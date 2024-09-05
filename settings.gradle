@@ -25,15 +25,23 @@ include ':navigatek_bar'
 include ':navigatek_navigation_test'
 include ':navigatek_navigation'
 include ':navigatek_navigation_compose'
-include ':navigatek_start'
-include ':navigatek_start_test'
+include ':navigatek_provider'
+include ':navigatek_provider_test'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
+include ':SwiftKit:mvvmk'
 include ':SwiftKit:xmlk'
 //AXmlKit
 include ':AXmlKit'
 project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
 include ':AXmlKit:recyclerk'
 include ':AXmlKit:vhk'
+//KUtilKit
+include ':KUtilKit'
+project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
+include ':KUtilKit:utilk_android'
+include ':KUtilKit:utilk_kotlin'
+include ':navigatek_start'
+include ':navigatek_start_test'

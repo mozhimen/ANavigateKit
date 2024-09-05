@@ -1,16 +1,15 @@
-package com.mozhimen.navigatek.start.impls
+package com.mozhimen.navigatek.provider.impls
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.content.UtilKIntentWrapper
 import com.mozhimen.kotlin.utilk.android.content.UtilKPackageManager
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.kotlin.utilk.android.content.startContext_throw
 import com.mozhimen.kotlin.utilk.commons.IUtilK
-import com.mozhimen.navigatek.start.commons.IStartProvider
+import com.mozhimen.navigatek.provider.commons.INavigateKData
+import com.mozhimen.navigatek.provider.commons.INavigateKProvider
 
 
 /**
@@ -20,14 +19,18 @@ import com.mozhimen.navigatek.start.commons.IStartProvider
  * @Date 2023/12/29 1:14
  * @Version 1.0
  */
-object StartProviderFacebook : IStartProvider, IUtilK {
-    override val PACKAGE_NAME = "com.facebook.katana"
+class NavigateKProviderFacebook : INavigateKProvider<NavigateKProviderFacebook.NavigateKDataFacebook>, IUtilK {
+
+    class NavigateKDataFacebook(val id: String, val name: String) : INavigateKData
 
     /////////////////////////////////////////////////////////////
 
-    @JvmStatic
-    fun startContext(context: Context) {
-        var intent = context.packageManager.getLaunchIntentForPackage(PACKAGE_NAME)
+    override fun getPackageName(): String {
+        return "com.facebook.katana"
+    }
+
+    fun start(context: Context) {
+        var intent = context.packageManager.getLaunchIntentForPackage(getPackageName())
         if (intent != null) {
             /* intent.flags =
      Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED or Intent.FLAG_ACTIVITY_CLEAR_TOP*/
@@ -43,9 +46,8 @@ object StartProviderFacebook : IStartProvider, IUtilK {
      * @param context Context
      * @param facebookPage String
      */
-    @JvmStatic
-    fun startContext(context: Context, id: String, name: String) {
-        val strPageUrl = "http://www.facebook.com/${name}"
+    override fun start(context: Context, data: NavigateKDataFacebook) {
+        val strPageUrl = "http://www.facebook.com/${data.name}"
         var intent: Intent
         try {
             intent = UtilKIntentWrapper.getViewStrUrl(getFacebookDetailURL(context, strPageUrl).also { UtilKLogWrapper.d(TAG, "startContext: getFacebookDetailURL $it") })
@@ -55,7 +57,7 @@ object StartProviderFacebook : IStartProvider, IUtilK {
             UtilKLogWrapper.e(TAG, "startContext: 1", e)
             // 处理Facebook应用未安装的情况// 可以在这里打开网页版Facebook或提示用户安装Facebook应用
             try {
-                intent = UtilKIntentWrapper.getViewStrUrl("fb://page/$id").apply { setPackage(PACKAGE_NAME) }// 指定要使用Facebook应用打开链接
+                intent = UtilKIntentWrapper.getViewStrUrl("fb://page/${data.id}").apply { setPackage(getPackageName()) }// 指定要使用Facebook应用打开链接
                 context.startContext_throw(intent)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -74,7 +76,7 @@ object StartProviderFacebook : IStartProvider, IUtilK {
      */
     private fun getFacebookDetailURL(context: Context, strPageUrl: String): String {
         try {
-            val applicationInfo = UtilKPackageManager.getApplicationInfo(context, PACKAGE_NAME)
+            val applicationInfo = UtilKPackageManager.getApplicationInfo(context, getPackageName())
             if (applicationInfo.enabled/*applicationInfo() >= 3002850*/) { //newer versions of fb app
                 return "fb://facewebmodal/f?href=$strPageUrl"
             }

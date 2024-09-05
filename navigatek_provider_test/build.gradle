@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.navigatek.start.test'
+    namespace 'com.mozhimen.navigatek.provider.test'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.navigatek.start.test"
-        minSdk 21
-        targetSdk 34
+        applicationId "com.mozhimen.navigatek.provider.test"
+        minSdk 24
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -37,6 +37,8 @@ android {
 
 dependencies {
     implementation project(':SwiftKit:mvvmk')
+    implementation project(':SwiftKit:xmlk')
+    implementation project(':navigatek_provider')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
