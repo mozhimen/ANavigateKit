@@ -2,7 +2,7 @@ package com.mozhimen.navigatek.start
 
 import android.app.Activity
 import android.content.Intent
-import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.elemk.commons.IAB_Listener
 import com.mozhimen.navigatek.start.impls.StartChainImpl
 import com.mozhimen.navigatek.start.utils.startForResult
 
@@ -38,15 +38,15 @@ object NavigateKStart {
             }
         }
 
-        override fun startForResult(intent: Intent, requestCode: Int, callback: IA_Listener<Intent?>) {
+        override fun startForResult(intent: Intent, requestCode: Int, onResult: IAB_Listener<Boolean,Intent?>) {
             if (_startChainImpl.getInterceptors().isNotEmpty()) {
                 _startChainImpl.setStartChainStateListener(object : com.mozhimen.navigatek.start.commons.IStartChainStateListener {
                     override fun onPostEnd() {
-                        _activity.startForResult(intent, requestCode, callback)
+                        _activity.startForResult(intent, requestCode, onResult)
                     }
                 }).next()
             } else {
-                _activity.startForResult(intent, requestCode, callback)
+                _activity.startForResult(intent, requestCode, onResult)
             }
         }
     }

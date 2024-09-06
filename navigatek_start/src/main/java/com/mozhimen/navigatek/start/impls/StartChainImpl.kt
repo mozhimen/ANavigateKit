@@ -39,14 +39,18 @@ class StartChainImpl : com.mozhimen.navigatek.start.commons.IStartChain {
     override fun next() {
         if (_currentIndex >= _interceptors.size) {
             _iStartChainStateListener?.onPreEnd()
-            _interceptors.clear()
-            _currentIndex = 0
+            exit()
             _iStartChainStateListener?.onPostEnd()
         } else {
             _iStartChainStateListener?.onPreNextRun()
             _interceptors[_currentIndex++].intercept(this)
             _iStartChainStateListener?.onPostNextRun()
         }
+    }
+
+    override fun exit() {
+        _interceptors.clear()
+        _currentIndex = 0
     }
 }
 

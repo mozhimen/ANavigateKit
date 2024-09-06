@@ -12,5 +12,6 @@ interface IStartChain {
     fun addInterceptor(interceptor: IStartInterceptor): IStartChain
     fun addInterceptorAt(index: Int, interceptor: IStartInterceptor): IStartChain
     fun next()
+    fun exit()
     fun getInterceptors(): List<IStartInterceptor>
 }

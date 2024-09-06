@@ -1,6 +1,7 @@
 package com.mozhimen.navigatek.start.commons
 
 import android.content.Intent
+import com.mozhimen.kotlin.elemk.commons.IAB_Listener
 import com.mozhimen.kotlin.elemk.commons.IA_Listener
 
 /**
@@ -14,5 +15,5 @@ interface IStartBuilder {
     fun addInterceptor(interceptor: IStartInterceptor): IStartBuilder
     fun addInterceptorAt(index: Int, interceptor: IStartInterceptor): IStartBuilder
     fun start(intent: Intent)
-    fun startForResult(intent: Intent, requestCode: Int, callback: IA_Listener<Intent?>)
+    fun startForResult(intent: Intent, requestCode: Int, onResult: IAB_Listener<Boolean,Intent?>)
 }
