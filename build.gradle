@@ -1,7 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        gradlePluginPortal()
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
@@ -13,6 +12,7 @@ buildscript {
         maven { url 'https://developer.huawei.com/repo/' }
         maven { url "https://jitpack.io" }
         maven { url 'https://www.jitpack.io' }
+        gradlePluginPortal()
         mavenCentral()
         google()
     }

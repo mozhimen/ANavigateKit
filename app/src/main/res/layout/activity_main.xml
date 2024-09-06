@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
-                style="@style/ComponentKStyle_Btn"
+                style="@style/StyleK_MaterialBtn"
                 android:onClick="goNavigateK"
                 android:text="goNavigateK"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />

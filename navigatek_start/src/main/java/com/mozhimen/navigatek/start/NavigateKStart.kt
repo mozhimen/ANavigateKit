@@ -2,58 +2,52 @@ package com.mozhimen.navigatek.start
 
 import android.app.Activity
 import android.content.Intent
-import androidx.fragment.app.FragmentActivity
-import com.mozhimen.kotlin.elemk.commons.IABC_Listener
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.navigatek.start.impls.StartChainImpl
+import com.mozhimen.navigatek.start.utils.startForResult
 
-/**
- * @ClassName NavigateKStart
- * @Description TODO
- * @Author mozhimen
- * @Date 2024/9/5
- * @Version 1.0
- */
 object NavigateKStart {
-    @JvmStatic
-    fun Activity.startForResult(
-        activity: Activity,
-        requestCode: Int, intent: Intent,
-        onResult: IABC_Listener<Int, Int, Intent?>,
-    ) {
-        //FragmentActivity
-        if (activity is FragmentActivity) {
-            val fragment = XFragmentForResult()
-            fragment.intent = intent
-            fragment.requestCode = requestCode
-            fragment.onActivityResult = { requestCode, resultCode, data ->
-                onResult?.invoke(requestCode, resultCode, data)
-                if (fragment.isAdded) {
-                    supportFragmentManager.beginTransaction().remove(fragment)
-                }
+
+    fun with(activity: Activity): Builder {
+        return Builder(activity)
+    }
+
+    class Builder(private val _activity: Activity) : com.mozhimen.navigatek.start.commons.IStartBuilder {
+
+        private val _startChainImpl = StartChainImpl()
+
+        override fun addInterceptor(interceptor: com.mozhimen.navigatek.start.commons.IStartInterceptor): Builder {
+            _startChainImpl.addInterceptor(interceptor)
+            return this
+        }
+
+        override fun addInterceptorAt(index: Int, interceptor: com.mozhimen.navigatek.start.commons.IStartInterceptor): Builder {
+            _startChainImpl.addInterceptorAt(index, interceptor)
+            return this
+        }
+
+        override fun start(intent: Intent) {
+            if (_startChainImpl.getInterceptors().isNotEmpty()) {
+                _startChainImpl.setStartChainStateListener(object : com.mozhimen.navigatek.start.commons.IStartChainStateListener {
+                    override fun onPostEnd() {
+                        _activity.startActivity(intent)
+                    }
+                }).next()
+            } else {
+                _activity.startActivity(intent)
             }
-            supportFragmentManager.beginTransaction().apply {
-                if (fragment.isAdded) {
-                    remove(fragment)
-                }
-                add(fragment, fragment.toString())
-            }.commitNowAllowingStateLoss()
-            supportFragmentManager.executePendingTransactions()
-        } else {//Activity
-            val fragment = FragmentForResult()
-            fragment.intent = intent
-            fragment.requestCode = requestCode
-            fragment.onActivityResult = { requestCode, resultCode, data ->
-                onResult?.invoke(requestCode, resultCode, data)
-                if (fragment.isAdded) {
-                    fragmentManager.beginTransaction().remove(fragment)
-                }
+        }
+
+        override fun startForResult(intent: Intent, requestCode: Int, callback: IA_Listener<Intent?>) {
+            if (_startChainImpl.getInterceptors().isNotEmpty()) {
+                _startChainImpl.setStartChainStateListener(object : com.mozhimen.navigatek.start.commons.IStartChainStateListener {
+                    override fun onPostEnd() {
+                        _activity.startForResult(intent, requestCode, callback)
+                    }
+                }).next()
+            } else {
+                _activity.startForResult(intent, requestCode, callback)
             }
-            fragmentManager.beginTransaction().apply {
-                if (fragment.isAdded) {
-                    remove(fragment)
-                }
-                add(fragment, fragment.toString())
-            }.commitAllowingStateLoss()
-            fragmentManager.executePendingTransactions()
         }
     }
 }

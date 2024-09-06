@@ -1,4 +1,4 @@
-package com.mozhimen.navigatek.start.test.commons
+package com.mozhimen.navigatek.start.commons
 
 /**
  * @ClassName IPageInterceptor
@@ -7,6 +7,6 @@ package com.mozhimen.navigatek.start.test.commons
  * @Date 2024/9/5
  * @Version 1.0
  */
-interface IPageInterceptor {
-    fun intercept(chain: IPageChain)
+interface IStartInterceptor {
+    fun intercept(chain: IStartChain)
 }

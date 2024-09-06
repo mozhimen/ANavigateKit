@@ -37,6 +37,7 @@ android {
 
 dependencies {
     implementation project(':SwiftKit:mvvmk')
+    implementation project(':navigatek_start')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
