@@ -32,16 +32,10 @@ android {
 
 dependencies {
     //navigatek
-    api 'androidx.navigation:navigation-common:2.5.3'
-    api 'androidx.navigation:navigation-common-ktx:2.5.3'
-    api 'androidx.navigation:navigation-fragment:2.5.3'
-    api 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    api 'androidx.navigation:navigation-ui:2.5.3'
-    api 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    api project(':ALibKit_Jetpack:navigation_common')
+    api project(':ALibKit_Jetpack:navigation_fragment')
+    api project(':ALibKit_Jetpack:navigation_ui')
 
-//    println("project.name: " + project.name)
-//    println("project.path: " + project.path)
-//    println("rootProject.name: " + rootProject.name)
     if (rootProject.name == "SwiftKit") {
         implementation project(':basick')
     } else {
