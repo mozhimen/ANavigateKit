@@ -22,6 +22,8 @@ dependencyResolutionManagement {
 rootProject.name = "ANavigateKit"
 include ':app'
 include ':navigatek_bar'
+include ':navigatek_navigation_compose_test'
+include ':navigatek_navigation_compose'
 include ':navigatek_navigation_test'
 include ':navigatek_navigation'
 include ':navigatek_provider'
@@ -34,6 +36,7 @@ project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
 include ':SwiftKit:mvvmk'
 include ':SwiftKit:xmlk'
+include ':SwiftKit:composek'
 //AXmlKit
 include ':AXmlKit'
 project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
@@ -50,4 +53,6 @@ project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKi
 include ':ALibKit_Jetpack:navigation_common'
 include ':ALibKit_Jetpack:navigation_fragment'
 include ':ALibKit_Jetpack:navigation_ui'
+include ':ALibKit_Jetpack:navigation_compose'
+
 
