@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -24,17 +25,29 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+enum class ERoute {
+    FIRST,
+    SECOND,
+    THIRD
+}
+
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "first") {
-        composable("first") {
+    NavHost(navController = navController, startDestination = ERoute.FIRST.name) {
+        composable(
+            route = ERoute.FIRST.name
+        ) {
             PageFirst(navController)
         }
-        composable("second") {
+        composable(
+            route = ERoute.SECOND.name
+        ) {
             PageSecond(navController)
         }
-        composable("third"){
+        composable(
+            route = ERoute.THIRD.name
+        ) {
             PageThird(navController)
         }
     }
@@ -43,8 +56,8 @@ fun AppNavigation() {
 @Composable
 fun PageFirst(navController: NavController) {
     Box(
-        modifier =
-        Modifier
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
@@ -59,8 +72,8 @@ fun PageFirst(navController: NavController) {
 @Composable
 fun PageSecond(navController: NavController) {
     Box(
-        modifier =
-        Modifier
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
@@ -74,8 +87,8 @@ fun PageSecond(navController: NavController) {
 @Composable
 fun PageThird(navController: NavController) {
     Box(
-        modifier =
-        Modifier
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
