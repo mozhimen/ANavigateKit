@@ -1,7 +1,7 @@
 package com.mozhimen.navigatek.provider.test
 
 import android.view.View
-import com.mozhimen.mvvmk.bases.activity.viewbinding.BaseActivityVB
+import com.mozhimen.bindk.bases.activity.viewbinding.BaseActivityVB
 import com.mozhimen.navigatek.provider.NavigateKManager
 import com.mozhimen.navigatek.provider.impls.NavigateKProviderFacebook
 import com.mozhimen.navigatek.provider.impls.NavigateKProviderTelegram

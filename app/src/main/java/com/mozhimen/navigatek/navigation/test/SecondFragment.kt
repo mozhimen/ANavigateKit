@@ -1,7 +1,7 @@
 package com.mozhimen.navigatek.navigation.test
 
 import android.os.Bundle
-import com.mozhimen.mvvmk.bases.fragment.databinding.BaseFragmentVDB
+import com.mozhimen.bindk.bases.fragment.databinding.BaseFragmentVDB
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.navigatek.navigation.NavigateKFragmentProxy
