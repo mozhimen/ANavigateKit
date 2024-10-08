@@ -3,7 +3,7 @@ package com.mozhimen.navigatek.navigation.test
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.bindk.bases.fragment.databinding.BaseFragmentVDB
+import com.mozhimen.bindk.bases.viewdatabinding.fragment.BaseFragmentVDB
 import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy

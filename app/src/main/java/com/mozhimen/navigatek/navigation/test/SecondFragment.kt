@@ -1,13 +1,14 @@
 package com.mozhimen.navigatek.navigation.test
 
 import android.os.Bundle
-import com.mozhimen.bindk.bases.fragment.databinding.BaseFragmentVDB
+import com.mozhimen.bindk.bases.viewdatabinding.fragment.BaseFragmentVDB
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.navigatek.navigation.NavigateKFragmentProxy
 import com.mozhimen.navigatek.navigation.helpers.getDestinationId
 import com.mozhimen.navigatek.navigation.mos.MNavigateKConfig
-import com.mozhimen.navigatek.navigation.test.databinding.FragmentSecondBinding
+import com.mozhimen.navigatek.test.databinding.FragmentSecondBinding
+import com.mozhimen.navigatek.test.R
 
 @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class)
 class SecondFragment : BaseFragmentVDB<FragmentSecondBinding>() {

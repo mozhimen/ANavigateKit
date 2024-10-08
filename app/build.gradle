@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 
@@ -31,11 +32,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        dataBinding true
+    }
 }
 
 dependencies {
+    implementation project(':SwiftKit:bindk')
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:xmlk')
+    implementation project(':AXmlKit:recyclerk')
+    implementation project(':navigatek_navigation')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

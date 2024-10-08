@@ -6,7 +6,7 @@
 
         <variable
             name="item_navigatek"
-            type="com.mozhimen.basick.elemk.mos.MKey" />
+            type="com.mozhimen.kotlin.elemk.mos.MKey" />
     </data>
 
     <FrameLayout
