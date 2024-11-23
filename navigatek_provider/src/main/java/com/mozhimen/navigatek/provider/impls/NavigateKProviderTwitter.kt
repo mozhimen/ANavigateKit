@@ -2,7 +2,7 @@ package com.mozhimen.navigatek.provider.impls
 
 import android.content.Context
 import android.content.Intent
-import com.mozhimen.kotlin.utilk.android.content.UtilKIntentWrapper
+import com.mozhimen.kotlin.utilk.android.content.UtilKIntentGet
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.kotlin.utilk.android.content.startContext_throw
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
@@ -27,20 +27,20 @@ class NavigateKProviderTwitter : INavigateKProvider<NavigateKProviderTwitter.Nav
     override fun start(context: Context, data: NavigateKDataTwitter) {
         var intent: Intent
         try {
-            intent = UtilKIntentWrapper.getViewStrUrl("https://twitter.com/${data.name}").apply { setPackage(getPackageName()) }// 指定要使用Twitter应用打开链接
+            intent = UtilKIntentGet.getViewStrUrl("https://twitter.com/${data.name}").apply { setPackage(getPackageName()) }// 指定要使用Twitter应用打开链接
             context.startContext_throw(intent)
         } catch (e: Exception) {
             e.printStackTrace()
             UtilKLogWrapper.e(TAG, "startContext: ", e)
             // 处理Twitter应用未安装的情况// 可以在这里打开网页版Twitter或提示用户安装Twitter应用
             try {
-                intent = UtilKIntentWrapper.getViewStrUrl("twitter://user?user_id=${data.id}")//activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + twitterName)));
+                intent = UtilKIntentGet.getViewStrUrl("twitter://user?user_id=${data.id}")//activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + twitterName)));
                 context.startContext_throw(intent)
             } catch (e: Exception) {
                 e.printStackTrace()
                 UtilKLogWrapper.e(TAG, "startContext: ", e)
                 //
-                intent = UtilKIntentWrapper.getViewStrUrl("https://twitter.com/${data.name}")
+                intent = UtilKIntentGet.getViewStrUrl("https://twitter.com/${data.name}")
                 context.startContext(intent)
             }
         }
