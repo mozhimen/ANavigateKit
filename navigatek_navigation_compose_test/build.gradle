@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
-    implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:composek')
+    implementation project(':ASwiftKit:basick')
+    implementation project(':ASwiftKit:composek')
     implementation project(':navigatek_navigation_compose')
 
     testImplementation 'junit:junit:4.13.2'

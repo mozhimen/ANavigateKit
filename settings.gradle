@@ -30,13 +30,13 @@ include ':navigatek_provider'
 include ':navigatek_provider_test'
 include ':navigatek_start'
 include ':navigatek_start_test'
-//SwiftKit
-include ':SwiftKit'
-project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
-include ':SwiftKit:basick'
-include ':SwiftKit:bindk'
-include ':SwiftKit:xmlk'
-include ':SwiftKit:composek'
+//ASwiftKit
+include ':ASwiftKit'
+project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
+include ':ASwiftKit:basick'
+include ':ASwiftKit:bindk'
+include ':ASwiftKit:xmlk'
+include ':ASwiftKit:composek'
 //AXmlKit
 include ':AXmlKit'
 project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
@@ -54,5 +54,9 @@ include ':ALibKit_Jetpack:navigation_common'
 include ':ALibKit_Jetpack:navigation_fragment'
 include ':ALibKit_Jetpack:navigation_ui'
 include ':ALibKit_Jetpack:navigation_compose'
+//ALibKit_Jetbrains
+include ':ALibKit_Jetbrains'
+project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
+include ':ALibKit_Jetbrains:kotlin_stdlib'
 
 
