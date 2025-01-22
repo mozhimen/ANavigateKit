@@ -1,16 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
-
 android {
-    namespace 'com.mozhimen.navigatek.test'
+    namespace 'com.mozhimen.navigatek.navigation.compose.test'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.navigatek.test"
+        applicationId "com.mozhimen.navigatek.navigation.compose.test"
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -32,17 +30,14 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
-        dataBinding true
-    }
+    buildFeatures.compose = true
+    composeOptions.kotlinCompilerExtensionVersion = "1.5.10"
 }
 
 dependencies {
-    implementation project(':ASwiftKit:bindk')
     implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:xmlk')
-    implementation project(':AXmlKit:recyclerk')
-    implementation project(':navigation')
+    implementation project(':ASwiftKit:composek')
+    implementation project(':navigation_compose')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

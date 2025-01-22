@@ -1,0 +1,72 @@
+{
+  "pages": [
+    {
+      "enable": false,
+      "pageInfo": {
+        "index": 2,
+        "id": 1020495070,
+        "url": "main/guidek/dashboard",
+        "clazzName": "com.mozhimen.guidek.fragments.DashboardFragment",
+        "destType": "fragment"
+      },
+      "title": "dashboard",
+      "tabConfig": {
+        "iconColorDefault": "",
+        "bitmapSelected": "",
+        "iconFont": "",
+        "iconColorSelected": "",
+        "name": "",
+        "bitmapDefault": "",
+        "type": "",
+        "iconNameDefault": "",
+        "iconNameSelected": ""
+      }
+    },
+    {
+      "enable": true,
+      "pageInfo": {
+        "index": 0,
+        "id": 2023408693,
+        "url": "main/guidek/home",
+        "clazzName": "com.mozhimen.guidek.fragments.HomeFragment",
+        "destType": "fragment"
+      },
+      "title": "home",
+      "tabConfig": {
+        "iconColorDefault": "",
+        "bitmapSelected": "",
+        "iconFont": "",
+        "iconColorSelected": "",
+        "name": "",
+        "bitmapDefault": "",
+        "type": "",
+        "iconNameDefault": "",
+        "iconNameSelected": ""
+      }
+    },
+    {
+      "enable": true,
+      "pageInfo": {
+        "index": 1,
+        "id": 1419895246,
+        "url": "main/guidek/notifications",
+        "clazzName": "com.mozhimen.guidek.fragments.NotificationsFragment",
+        "destType": "fragment"
+      },
+      "title": "notifications",
+      "tabConfig": {
+        "iconColorDefault": "",
+        "bitmapSelected": "",
+        "iconFont": "",
+        "iconColorSelected": "",
+        "name": "",
+        "bitmapDefault": "",
+        "type": "",
+        "iconNameDefault": "",
+        "iconNameSelected": ""
+      }
+    }
+  ],
+  "indexDefault": 0,
+  "versionCode": 0
+}

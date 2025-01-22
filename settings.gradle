@@ -21,15 +21,34 @@ dependencyResolutionManagement {
 
 rootProject.name = "ANavigateKit"
 include ':app'
-include ':navigatek_bar'
-include ':navigatek_navigation_compose_test'
-include ':navigatek_navigation_compose'
-include ':navigatek_navigation_test'
-include ':navigatek_navigation'
-include ':navigatek_provider'
-include ':navigatek_provider_test'
-include ':navigatek_start'
-include ':navigatek_start_test'
+include ':bar'
+include ':navigation_compose'
+include ':navigation_compose:test'
+include ':navigation'
+include ':navigation:test'
+include ':provider'
+include ':provider:test'
+include ':start'
+include ':start:test'
+//ALibKit_Google
+include ':ALibKit_Google'
+project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
+include ':ALibKit_Google:material'
+//ALibKit_Jetpack
+include ':ALibKit_Jetpack'
+project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
+include ':ALibKit_Jetpack:navigation_common'
+include ':ALibKit_Jetpack:navigation_fragment'
+include ':ALibKit_Jetpack:navigation_ui'
+include ':ALibKit_Jetpack:navigation_compose'
+include ':ALibKit_Jetpack:databinding'
+include ':ALibKit_Jetpack:core'
+include ':ALibKit_Jetpack:annotation'
+//ALibKit_Jetbrains
+include ':ALibKit_Jetbrains'
+project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
+include ':ALibKit_Jetbrains:kotlin_stdlib'
+include ':ALibKit_Jetbrains:kotlinx_coroutines'
 //ASwiftKit
 include ':ASwiftKit'
 project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
@@ -45,18 +64,8 @@ include ':AXmlKit:vhk'
 //KUtilKit
 include ':KUtilKit'
 project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
-include ':KUtilKit:utilk_android'
-include ':KUtilKit:utilk_kotlin'
-//ALibKit_Jetpack
-include ':ALibKit_Jetpack'
-project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
-include ':ALibKit_Jetpack:navigation_common'
-include ':ALibKit_Jetpack:navigation_fragment'
-include ':ALibKit_Jetpack:navigation_ui'
-include ':ALibKit_Jetpack:navigation_compose'
-//ALibKit_Jetbrains
-include ':ALibKit_Jetbrains'
-project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
-include ':ALibKit_Jetbrains:kotlin_stdlib'
+include ':KUtilKit:android'
+include ':KUtilKit:kotlin'
+
 
 

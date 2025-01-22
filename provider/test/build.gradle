@@ -1,18 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
-
 android {
-    namespace 'com.mozhimen.navigatek.test'
+    namespace 'com.mozhimen.navigatek.provider.test'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.navigatek.test"
-        minSdk 21
-        targetSdk 34
+        applicationId "com.mozhimen.navigatek.provider.test"
+        minSdk 24
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -33,16 +31,14 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures{
-        dataBinding true
+        viewBinding true
     }
 }
 
 dependencies {
     implementation project(':ASwiftKit:bindk')
-    implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
-    implementation project(':AXmlKit:recyclerk')
-    implementation project(':navigation')
+    implementation project(':provider')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
