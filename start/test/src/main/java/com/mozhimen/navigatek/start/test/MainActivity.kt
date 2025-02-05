@@ -2,7 +2,7 @@ package com.mozhimen.navigatek.start.test
 
 import android.os.Bundle
 import android.util.Log
-import com.mozhimen.bindk.bases.viewbinding.activity.BaseActivityVB
+import com.mozhimen.uik.databinding.bases.viewbinding.activity.BaseActivityVB
 import com.mozhimen.kotlin.utilk.android.app.getIntent
 import com.mozhimen.kotlin.utilk.android.content.UtilKIntent
 import com.mozhimen.kotlin.utilk.android.content.startContext
