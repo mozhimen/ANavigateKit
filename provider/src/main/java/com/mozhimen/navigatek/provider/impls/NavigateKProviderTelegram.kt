@@ -29,7 +29,7 @@ class NavigateKProviderTelegram : INavigateKProvider<NavigateKProviderTelegram.N
     override fun start(context: Context, data: NavigateKDataTelegram) {
         var intent: Intent
         try {
-            intent = UtilKIntentGet.getViewStrUrl("https://t.me/${data.name}").apply { setPackage(getPackageName()) }// 指定要使用Telegram应用打开链接
+            intent = UtilKIntentGet.getIntent_ACTION_VIEW("https://t.me/${data.name}").apply { setPackage(getPackageName()) }// 指定要使用Telegram应用打开链接
             context.startContext_throw(intent)
         } catch (e: Exception) {
             e.printStackTrace()

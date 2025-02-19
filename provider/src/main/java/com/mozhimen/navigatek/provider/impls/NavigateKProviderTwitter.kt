@@ -27,20 +27,20 @@ class NavigateKProviderTwitter : INavigateKProvider<NavigateKProviderTwitter.Nav
     override fun start(context: Context, data: NavigateKDataTwitter) {
         var intent: Intent
         try {
-            intent = UtilKIntentGet.getViewStrUrl("https://twitter.com/${data.name}").apply { setPackage(getPackageName()) }// 指定要使用Twitter应用打开链接
+            intent = UtilKIntentGet.getIntent_ACTION_VIEW("https://twitter.com/${data.name}").apply { setPackage(getPackageName()) }// 指定要使用Twitter应用打开链接
             context.startContext_throw(intent)
         } catch (e: Exception) {
             e.printStackTrace()
             UtilKLogWrapper.e(TAG, "startContext: ", e)
             // 处理Twitter应用未安装的情况// 可以在这里打开网页版Twitter或提示用户安装Twitter应用
             try {
-                intent = UtilKIntentGet.getViewStrUrl("twitter://user?user_id=${data.id}")//activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + twitterName)));
+                intent = UtilKIntentGet.getIntent_ACTION_VIEW("twitter://user?user_id=${data.id}")//activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + twitterName)));
                 context.startContext_throw(intent)
             } catch (e: Exception) {
                 e.printStackTrace()
                 UtilKLogWrapper.e(TAG, "startContext: ", e)
                 //
-                intent = UtilKIntentGet.getViewStrUrl("https://twitter.com/${data.name}")
+                intent = UtilKIntentGet.getIntent_ACTION_VIEW("https://twitter.com/${data.name}")
                 context.startContext(intent)
             }
         }
