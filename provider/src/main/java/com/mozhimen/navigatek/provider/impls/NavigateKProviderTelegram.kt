@@ -35,7 +35,7 @@ class NavigateKProviderTelegram : INavigateKProvider<NavigateKProviderTelegram.N
             e.printStackTrace()
             UtilKLogWrapper.e(TAG, "startContext: ", e)
             // 处理Telegram应用未安装的情况// 可以在这里打开网页版Telegram或提示用户安装Telegram应用
-            intent = UtilKIntentGet.getViewStrUrl("https://t.me/${data.name}")
+            intent = UtilKIntentGet.getIntent_ACTION_VIEW("https://t.me/${data.name}")
             context.startContext(intent)
         }
     }
