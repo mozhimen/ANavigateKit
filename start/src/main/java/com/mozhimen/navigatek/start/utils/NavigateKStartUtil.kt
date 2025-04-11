@@ -3,8 +3,8 @@ package com.mozhimen.navigatek.start.utils
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
-import com.mozhimen.kotlin.elemk.androidx.fragment.InvisibleProxyFragment_ofAndroid
-import com.mozhimen.kotlin.elemk.androidx.fragment.InvisibleProxyFragment_ofAndroidx
+import com.mozhimen.kotlin.elemk.androidx.fragment.impls.InvisibleProxyFragment_ofAndroid
+import com.mozhimen.kotlin.elemk.androidx.fragment.impls.InvisibleProxyFragment_ofAndroidx
 import com.mozhimen.kotlin.elemk.commons.IAB_Listener
 import com.mozhimen.kotlin.elemk.commons.IA_Listener
 
