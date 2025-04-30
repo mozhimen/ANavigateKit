@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace 'com.mozhimen.navigatek.test'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.mozhimen.navigatek.test"
