@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.uik.databinding.bases.viewdatabinding.fragment.BaseFragmentVDB
 import com.mozhimen.kotlin.elemk.mos.MKey
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.navigatek.navigation.helpers.getDestinationId
 import com.mozhimen.navigatek.test.databinding.FragmentThirdBinding
 import com.mozhimen.navigatek.test.databinding.ItemNavigatekBinding

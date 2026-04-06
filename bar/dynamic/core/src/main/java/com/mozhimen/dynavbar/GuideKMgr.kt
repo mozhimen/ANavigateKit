@@ -3,8 +3,8 @@ package com.mozhimen.dynavbar
 import androidx.lifecycle.MutableLiveData
 import com.mozhimen.basick.cachek.CacheK
 import com.mozhimen.basick.executork.ExecutorK
-import com.mozhimen.basick.utilk.UtilKAssets
-import com.mozhimen.basick.utilk.UtilKJson
+import com.mozhimen.kotlin.utilk.UtilKAssets
+import com.mozhimen.kotlin.utilk.UtilKJson
 import com.mozhimen.dynavbar.mos.*
 import com.mozhimen.dynavbar.mos.GuideKDestination
 import com.mozhimen.uicorek.tabk.bottom.mos.TabKBottomMo

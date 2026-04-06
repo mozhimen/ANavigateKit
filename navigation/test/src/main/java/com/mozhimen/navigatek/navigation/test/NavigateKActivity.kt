@@ -3,8 +3,8 @@ package com.mozhimen.navigatek.navigation.test
 import android.os.Bundle
 import androidx.navigation.ui.NavigationUI
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.navigatek.navigation.NavigateKActivityProxy
 import com.mozhimen.navigatek.navigation.mos.MNavigateKConfig
 import com.mozhimen.navigatek.navigation.test.databinding.ActivityNavigatekBinding

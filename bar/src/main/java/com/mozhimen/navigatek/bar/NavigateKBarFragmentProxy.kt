@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.mozhimen.kotlin.elemk.androidx.fragment.impls.FragmentsStoreProxy
 import com.mozhimen.kotlin.elemk.commons.IA_Listener
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.androidx.fragment.UtilKFragmentManager
 import com.mozhimen.kotlin.utilk.androidx.fragment.addAndHideFragments
