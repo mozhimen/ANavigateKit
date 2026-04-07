@@ -36,9 +36,9 @@ android {
 
 dependencies {
     //navigatek
-    api project(':ALibKit_Jetpack:navigation_common')
-    api project(':ALibKit_Jetpack:navigation_fragment')
-    api project(':ALibKit_Jetpack:navigation_ui')
+    api project(':ALibKit_Jetpack:navigation-common-bom')
+    api project(':ALibKit_Jetpack:navigation-fragment-bom')
+    api project(':ALibKit_Jetpack:navigation-ui-bom')
 
     if (rootProject.name == "ASwiftKit") {
         implementation project(':basick')
