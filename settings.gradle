@@ -1,6 +1,10 @@
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://jitpack.io" }
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
@@ -11,61 +15,26 @@ dependencyResolutionManagement {
         maven { url 'https://gitee.com/liuchaoya/libcommon/raw/master/repository/' }
         maven { url "https://repo.eclipse.org/content/repositories/paho-snapshots/" }
         maven { url 'https://developer.huawei.com/repo/' }
-        maven { url "https://jitpack.io" }
         maven { url 'https://www.jitpack.io' }
-        mavenCentral()
-        google()
     }
 }
 
 
 rootProject.name = "ANavigateKit"
-include ':app'
+//include ':app'
 include ':bar'
-include ':navigation_compose'
-include ':navigation_compose:test'
+//include ':bar-dynamic:exam'
+//include ':bar-dynamic_annor'
+//include ':bar-dynamic_compiler'
+//include ':bar-dynamic_core'
 include ':navigation'
-include ':navigation:test'
+//include ':navigation:test'
+include ':navigation-compose'
+//include ':navigation-compose:test'
 include ':provider'
 include ':provider:test'
 include ':start'
 include ':start:test'
-//ALibKit_Google
-include ':ALibKit_Google'
-project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
-include ':ALibKit_Google:material'
-//ALibKit_Jetpack
-include ':ALibKit_Jetpack'
-project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
-include ':ALibKit_Jetpack:navigation_common'
-include ':ALibKit_Jetpack:navigation_fragment'
-include ':ALibKit_Jetpack:navigation_ui'
-include ':ALibKit_Jetpack:navigation_compose'
-include ':ALibKit_Jetpack:databinding'
-include ':ALibKit_Jetpack:core'
-include ':ALibKit_Jetpack:annotation'
-//ALibKit_Jetbrains
-include ':ALibKit_Jetbrains'
-project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
-include ':ALibKit_Jetbrains:kotlin_stdlib'
-include ':ALibKit_Jetbrains:kotlinx_coroutines'
-//ASwiftKit
-include ':ASwiftKit'
-project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
-include ':ASwiftKit:basick'
-include ':ASwiftKit:uik:databinding'
-include ':ASwiftKit:xmlk'
-include ':ASwiftKit:composek'
-//AXmlKit
-include ':AXmlKit'
-project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
-include ':AXmlKit:recyclerk'
-include ':AXmlKit:vhk'
-//KUtilKit
-include ':KUtilKit'
-project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
-include ':KUtilKit:android'
-include ':KUtilKit:kotlin'
 
 
 

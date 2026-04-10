@@ -35,16 +35,10 @@ android {
 }
 
 dependencies {
-    //navigatek
-    api project(':ALibKit_Jetpack:navigation-common-bom')
-    api project(':ALibKit_Jetpack:navigation-fragment-bom')
-    api project(':ALibKit_Jetpack:navigation-ui-bom')
-
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':basick')
-    } else {
-        implementation project(':ASwiftKit:basick')
-    }
+    api 'com.github.mozhimen.ALibKit_Jetpack:navigation-common-bom:0.0.7'
+    api 'com.github.mozhimen.ALibKit_Jetpack:navigation-fragment-bom:0.0.7'
+    api 'com.github.mozhimen.ALibKit_Jetpack:navigation-ui-bom:0.0.7'
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
 
     //test
     testImplementation 'junit:junit:4.13.2'

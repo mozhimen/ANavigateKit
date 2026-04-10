@@ -2,6 +2,8 @@ package com.mozhimen.navigatek.provider.impls
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.content.UtilKIntentGet
 import com.mozhimen.kotlin.utilk.android.content.UtilKPackageManagerWrapper
@@ -46,6 +48,7 @@ class NavigateKProviderFacebook : INavigateKProvider<NavigateKProviderFacebook.N
      * @param context Context
      * @param facebookPage String
      */
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun start(context: Context, data: NavigateKDataFacebook) {
         val strPageUrl = "http://www.facebook.com/${data.name}"
         var intent: Intent
@@ -74,9 +77,10 @@ class NavigateKProviderFacebook : INavigateKProvider<NavigateKProviderFacebook.N
     /**
      * 直接链接
      */
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun getFacebookDetailURL(context: Context, strPageUrl: String): String {
         try {
-            val applicationInfo = UtilKPackageManagerWrapper.getApplicationInfo_INSTALL_LOCATION_AUTO(context, getPackageName())
+            val applicationInfo = UtilKPackageManagerWrapper.getApplicationInfo_INSTALL_LOCATION_AUTO( getPackageName(),context)
             if (applicationInfo.enabled/*applicationInfo() >= 3002850*/) { //newer versions of fb app
                 return "fb://facewebmodal/f?href=$strPageUrl"
             }

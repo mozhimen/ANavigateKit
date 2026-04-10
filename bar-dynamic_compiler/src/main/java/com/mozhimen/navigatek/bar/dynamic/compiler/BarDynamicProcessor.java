@@ -1,10 +1,10 @@
-package com.mozhimen.guidek.compiler;
+package com.mozhimen.navigatek.bar.dynamic.compiler;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.auto.service.AutoService;
-import com.mozhimen.guidek.annor.*;
+import com.mozhimen.navigatek.bar.dynamic.annor.BarDynamicAnnor;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,14 +32,14 @@ import javax.tools.StandardLocation;
 
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
-@SupportedAnnotationTypes({"com.mozhimen.guidek.annor.GuideKDestination"})
-public class GuideKProcessor extends AbstractProcessor {
+@SupportedAnnotationTypes({"com.mozhimen.navigatek.bar.dynamic.annor.BarDynamicAnnor.java"})
+public class BarDynamicProcessor extends AbstractProcessor {
 
     private static final String PAGE_TYPE_ACTIVITY = "Activity";
     private static final String PAGE_TYPE_FRAGMENT = "Fragment";
     private static final String PAGE_TYPE_DIALOG = "Dialog";
     private static final String FILE_NAME_DESTINATION = "guideKDestination.json";
-    private static final String TAG = "GuideK>>>>> ";
+    private static final String TAG = "BarDynamicProcessor>>>>> ";
 
     private Messager _messager;
     private Filer _filer;
@@ -67,10 +67,10 @@ public class GuideKProcessor extends AbstractProcessor {
      */
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(GuideKDestination.class);
+        Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(BarDynamicAnnor.class);
         if (!elements.isEmpty()) {
             HashMap destMap = new HashMap();
-            handleDestination(elements, GuideKDestination.class, destMap);
+            handleDestination(elements, BarDynamicAnnor.class, destMap);
 
             try {
                 FileObject resource = _filer.createResource(StandardLocation.CLASS_OUTPUT, "", FILE_NAME_DESTINATION);
@@ -112,7 +112,7 @@ public class GuideKProcessor extends AbstractProcessor {
      * @param destinationClass
      * @param destMap
      */
-    private void handleDestination(Set<? extends Element> elements, Class<GuideKDestination> destinationClass, HashMap destMap) {
+    private void handleDestination(Set<? extends Element> elements, Class<BarDynamicAnnor> destinationClass, HashMap destMap) {
         int indexDefault = 0;
         JSONArray pages = new JSONArray();
 
@@ -120,7 +120,7 @@ public class GuideKProcessor extends AbstractProcessor {
             TypeElement typeElement = (TypeElement) element;
             String clazzName = typeElement.getQualifiedName().toString();//clazzName 全类名
 
-            GuideKDestination annotation = typeElement.getAnnotation(destinationClass);
+            BarDynamicAnnor annotation = typeElement.getAnnotation(destinationClass);
             String url = annotation.pageUrl();
             String title = url.substring(url.lastIndexOf("/") + 1);
             int index = annotation.pageIndex();

@@ -1,10 +1,10 @@
-package com.mozhimen.guidek.annor;
+package com.mozhimen.navigatek.bar.dynamic.annor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
-public @interface GuideKDestination {
+public @interface BarDynamicAnnor {
     /**
      * 页面路由的名称
      *

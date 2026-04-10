@@ -5,20 +5,20 @@ plugins {
 }
 
 android {
-    compileSdk rootProject.ext.android.compileSdk
+    compileSdk 35
 
     defaultConfig {
-        minSdk rootProject.ext.android.minSdk
-        targetSdk rootProject.ext.android.targetSdk
+        minSdk 19
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+//        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -31,15 +31,11 @@ android {
 }
 
 dependencies {
-    api project(project.path.replace(project.name, '') +  ':guidek_annor')
-
-    //guidek
+    api project(project.path.replace(project.name, '') +  ':bar-dynamic_annor')
     api 'com.alibaba:fastjson:1.2.68'
-    api 'androidx.navigation:navigation-fragment-ktx:2.4.1'
-    api 'androidx.navigation:navigation-ui-ktx:2.4.1'
-
-    implementation 'com.github.mozhimen.SwiftKit:basick:1.1.3'
-    implementation 'com.github.mozhimen.SwiftKit:uicorek:1.1.3'
+    api 'com.github.mozhimen.ALibKit_Jetpack:navigation-fragment-bom:0.0.7'
+    api 'com.github.mozhimen.ALibKit_Jetpack:navigation-ui-bom:0.0.7'
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

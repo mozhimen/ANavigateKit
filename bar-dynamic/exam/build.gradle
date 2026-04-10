@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk rootProject.ext.android.compileSdk
+    compileSdk 35
 
     defaultConfig {
         applicationId rootProject.ext.android.applicationId
