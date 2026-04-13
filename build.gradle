@@ -29,8 +29,8 @@ buildscript {
 
 subprojects {
     apply plugin: 'maven-publish'
-    def versionToPublished = '2.1.6'
-    def groupIdToPublished = 'com.github.mozhimen.ASwiftKit'
+    def versionToPublished = '0.0.4'
+    def groupIdToPublished = 'com.github.mozhimen.ANavigateKit'
 
     afterEvaluate { project ->
 
