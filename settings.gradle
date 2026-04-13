@@ -21,16 +21,16 @@ dependencyResolutionManagement {
 
 
 rootProject.name = "ANavigateKit"
-//include ':app'
+include ':app'
 include ':bar'
 //include ':bar-dynamic:exam'
-//include ':bar-dynamic_annor'
-//include ':bar-dynamic_compiler'
-//include ':bar-dynamic_core'
+include ':bar-dynamic_annor'
+include ':bar-dynamic_compiler'
+include ':bar-dynamic_core'
 include ':navigation'
-//include ':navigation:test'
+include ':navigation:test'
 include ':navigation-compose'
-//include ':navigation-compose:test'
+include ':navigation-compose:test'
 include ':provider'
 include ':provider:test'
 include ':start'

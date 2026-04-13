@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import com.mozhimen.basick.basek.BaseKActivity
 import com.mozhimen.basick.basek.BaseKViewModel
-import com.mozhimen.dynavbar.GuideK
-import com.mozhimen.dynavbar.GuideKMgr
-import com.mozhimen.dynavbar.commons.GuideKSelectedListener
+import com.mozhimen.navigatek.bar.dynamic.core.BarDynamic
+import com.mozhimen.navigatek.bar.dynamic.core.BarDynamicMgr
+import com.mozhimen.navigatek.bar.dynamic.core.commons.DynamicSelectedListener
 import com.mozhimen.dynavbar.mos.GuideKPageInfo
 import com.mozhimen.guidek.databinding.ActivityMainBinding
 import com.mozhimen.uicorek.tabk.bottom.mos.TabKBottomMo
@@ -33,20 +33,20 @@ class MainActivity :
         val hostFragment =
             supportFragmentManager.findFragmentById(R.id.guidek_fragment_container)
 
-        GuideKMgr.instance.getConfig().observe(this) {
+        BarDynamicMgr.instance.getConfig().observe(this) {
             if (it != null) {
-                GuideK.buildNavGraph(
+                BarDynamic.buildNavGraph(
                     it,
                     this,
                     hostFragment!!.childFragmentManager,
                     navController,
                     R.id.guidek_fragment_container
                 )
-                GuideK.buildBottomLayout(
+                BarDynamic.buildBottomLayout(
                     it,
-                    GuideK.indexOf(it.pkgPages, _currentItemId),
+                    BarDynamic.indexOf(it.pkgPages, _currentItemId),
                     vb.guidekBottomLayout,
-                    listener = object : GuideKSelectedListener {
+                    listener = object : DynamicSelectedListener {
                         override fun onSelected(
                             index: Int,
                             pageInfo: GuideKPageInfo,

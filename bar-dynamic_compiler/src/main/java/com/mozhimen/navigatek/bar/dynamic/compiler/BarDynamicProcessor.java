@@ -38,7 +38,7 @@ public class BarDynamicProcessor extends AbstractProcessor {
     private static final String PAGE_TYPE_ACTIVITY = "Activity";
     private static final String PAGE_TYPE_FRAGMENT = "Fragment";
     private static final String PAGE_TYPE_DIALOG = "Dialog";
-    private static final String FILE_NAME_DESTINATION = "guideKDestination.json";
+    private static final String FILE_NAME_DESTINATION = "BarDynamicDestination.json";
     private static final String TAG = "BarDynamicProcessor>>>>> ";
 
     private Messager _messager;

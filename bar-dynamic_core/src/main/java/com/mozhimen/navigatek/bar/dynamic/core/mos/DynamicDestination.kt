@@ -1,4 +1,4 @@
-package com.mozhimen.dynavbar.mos
+package com.mozhimen.navigatek.bar.dynamic.core.mos
 
 import java.io.Serializable
 
@@ -9,20 +9,20 @@ import java.io.Serializable
  * @Date 2022/4/29 22:10
  * @Version 1.0
  */
-internal data class GuideKDestination(
+internal data class DynamicDestination(
     val versionCode: Int,
     val indexDefault: Int,
-    val pages: List<GuideKPage>
+    val pages: List<DynamicPage>
 ) : Serializable
 
-internal data class GuideKPage(
+internal data class DynamicPage(
     val enable: Boolean,
-    val pageInfo: GuideKPageInfo,
-    val tabConfig: GuideKTabConfig,
+    val pageInfo: DynamicPageInfo,
+    val tabConfig: DynamicTabConfig,
     val title: String
 ) : Serializable
 
-data class GuideKPageInfo(
+data class DynamicPageInfo(
     val clazzName: String,
     val destType: String,
     val index: Int,
@@ -30,7 +30,7 @@ data class GuideKPageInfo(
     val url: String
 ) : Serializable
 
-internal data class GuideKTabConfig(
+internal data class DynamicTabConfig(
     val name: String,
     val bitmapDefault: String,
     val bitmapSelected: String,

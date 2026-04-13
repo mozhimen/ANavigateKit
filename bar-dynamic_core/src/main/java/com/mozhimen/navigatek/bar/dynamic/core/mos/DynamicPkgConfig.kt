@@ -1,6 +1,7 @@
-package com.mozhimen.dynavbar.mos
+package com.mozhimen.navigatek.bar.dynamic.core.mos
 
-import com.mozhimen.uicorek.tabk.bottom.mos.TabKBottomMo
+
+import com.mozhimen.xmlk.layoutk.tab.bottom.mos.MTabBottom
 import java.io.Serializable
 
 /**
@@ -17,6 +18,6 @@ data class GuideKPkgConfig(
 ) : Serializable
 
 data class GuideKPkgPage(
-    val pageInfo: GuideKPageInfo,
-    val tabKBottomMo: TabKBottomMo
+    val pageInfo: DynamicPageInfo,
+    val tabKBottomMo: MTabBottom
 ) : Serializable

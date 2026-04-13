@@ -10,9 +10,9 @@ import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.navigatek.navigation.helpers.getDestinationId
 import com.mozhimen.navigatek.test.databinding.FragmentFirstBinding
 import com.mozhimen.navigatek.test.databinding.ItemNavigatekBinding
-import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterVDB
 import com.mozhimen.navigatek.test.R
 import com.mozhimen.navigatek.test.BR
+import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterVDB
 
 class FirstFragment : BaseFragmentVDB<FragmentFirstBinding>() {
     companion object {

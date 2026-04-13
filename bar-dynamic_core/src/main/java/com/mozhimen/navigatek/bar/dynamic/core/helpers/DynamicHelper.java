@@ -1,4 +1,4 @@
-package com.mozhimen.dynavbar.helpers;
+package com.mozhimen.navigatek.bar.dynamic.core.helpers;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -21,8 +21,8 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigator;
 import androidx.navigation.NavigatorProvider;
 
-import com.mozhimen.dynavbar.R;
-import com.mozhimen.dynavbar.mos.GuideKConstants;
+import com.mozhimen.navigatek.bar.dynamic.core.mos.DynamicConstants;
+import com.mozhimen.navigatek.bar.dynamic.core.R;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
@@ -52,17 +52,17 @@ import java.util.Map;
  * (i.e., in callbacks to {@link NavController.OnDestinationChangedListener}).
  */
 @Navigator.Name("guidek")
-public class GuideKHelper extends Navigator<GuideKHelper.Destination> {
+public class DynamicHelper extends Navigator<DynamicHelper.Destination> {
     private static final String KEY_BACK_STACK_IDS = "androidx-nav-fragment:navigator:backStackIds";
 
     private final Context _context;
     private final FragmentManager _fragmentManager;
     private final int _containerId;
     private ArrayDeque<Integer> _backStack = new ArrayDeque<>();
-    private final String TAG = "GuideKHelper>>>>>";
+    private final String TAG = "DynamicHelper>>>>>";
 
-    public GuideKHelper(@NonNull Context context, @NonNull FragmentManager manager,
-                        int containerId) {
+    public DynamicHelper(@NonNull Context context, @NonNull FragmentManager manager,
+                         int containerId) {
         _context = context;
         _fragmentManager = manager;
         _containerId = containerId;
@@ -146,7 +146,7 @@ public class GuideKHelper extends Navigator<GuideKHelper.Destination> {
     public NavDestination navigate(@NonNull Destination destination, @Nullable Bundle args,
                                    @Nullable NavOptions navOptions, @Nullable Navigator.Extras navigatorExtras) {
         if (_fragmentManager.isStateSaved()) {
-            Log.d(GuideKConstants.TAG, "Ignoring navigate() call: FragmentManager has already"
+            Log.d(TAG, "Ignoring navigate() call: FragmentManager has already"
                     + " saved its state");
             return null;
         }
@@ -280,7 +280,7 @@ public class GuideKHelper extends Navigator<GuideKHelper.Destination> {
          *                          will be associated with.
          */
         public Destination(@NonNull NavigatorProvider navigatorProvider) {
-            this(navigatorProvider.getNavigator(GuideKHelper.class));
+            this(navigatorProvider.getNavigator(DynamicHelper.class));
         }
 
         /**
@@ -301,8 +301,8 @@ public class GuideKHelper extends Navigator<GuideKHelper.Destination> {
         public void onInflate(@NonNull Context context, @NonNull AttributeSet attrs) {
             super.onInflate(context, attrs);
             TypedArray a = context.getResources().obtainAttributes(attrs,
-                    R.styleable.FragmentNavigator);
-            String className = a.getString(R.styleable.FragmentNavigator_android_name);
+                    androidx.navigation.fragment.R.styleable.FragmentNavigator);
+            String className = a.getString(androidx.navigation.fragment.R.styleable.FragmentNavigator_android_name);
             if (className != null) {
                 setClassName(className);
             }

@@ -1,11 +1,11 @@
 package com.mozhimen.guidek
 
 import android.app.Application
-import com.mozhimen.dynavbar.GuideK
-import com.mozhimen.dynavbar.GuideKMgr
+import com.mozhimen.navigatek.bar.dynamic.core.BarDynamic
+import com.mozhimen.navigatek.bar.dynamic.core.BarDynamicMgr
 import com.mozhimen.dynavbar.mos.GuideKPageInfo
-import com.mozhimen.dynavbar.mos.GuideKPkgConfig
-import com.mozhimen.dynavbar.mos.GuideKPkgPage
+import com.mozhimen.navigatek.bar.dynamic.core.mos.GuideKPkgConfig
+import com.mozhimen.navigatek.bar.dynamic.core.mos.GuideKPkgPage
 import com.mozhimen.guidek.fragments.HomeFragment
 import com.mozhimen.uicorek.tabk.bottom.mos.TabKBottomMo
 
@@ -14,7 +14,7 @@ class MainApplication : Application() {
         super.onCreate()
 
         //guidek
-        GuideKMgr.instance.init(_guidekConfig)
+        BarDynamicMgr.instance.init(_guidekConfig)
     }
 
     private val _guidekConfig = GuideKPkgConfig(
@@ -26,7 +26,7 @@ class MainApplication : Application() {
                     "com.mozhimen.guidek.fragments.HomeFragment",
                     "fragment",
                     0,
-                    GuideK.getHashCode(HomeFragment::class.java),
+                    BarDynamic.getHashCode(HomeFragment::class.java),
                     "main/guidek/home"
                 ),
                 TabKBottomMo(

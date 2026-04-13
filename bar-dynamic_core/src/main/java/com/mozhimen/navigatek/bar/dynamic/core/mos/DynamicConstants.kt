@@ -1,4 +1,4 @@
-package com.mozhimen.dynavbar.mos
+package com.mozhimen.navigatek.bar.dynamic.core.mos
 
 /**
  * @ClassName GuideKTabType
@@ -7,11 +7,10 @@ package com.mozhimen.dynavbar.mos
  * @Date 2022/4/29 22:49
  * @Version 1.0
  */
-object GuideKConstants {
+object DynamicConstants {
     const val IMAGE_TEXT = "IMAGE_TEXT"
     const val IMAGE = "IMAGE"
     const val ICONFONT_TEXT = "ICONFONT_TEXT"
 
-    const val FILE_NAME_TAB_CONFIG = "guideKTabConfig.json"
-    const val TAG = "GuideK>>>>>"
+    const val FILE_NAME_TAB_CONFIG = "BarDynamicTabConfig.json"
 }

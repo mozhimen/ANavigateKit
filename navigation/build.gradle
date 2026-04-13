@@ -38,7 +38,7 @@ dependencies {
     api 'com.github.mozhimen.ALibKit_Jetpack:navigation-common-bom:0.0.7'
     api 'com.github.mozhimen.ALibKit_Jetpack:navigation-fragment-bom:0.0.7'
     api 'com.github.mozhimen.ALibKit_Jetpack:navigation-ui-bom:0.0.7'
-    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.1.6'
 
     //test
     testImplementation 'junit:junit:4.13.2'

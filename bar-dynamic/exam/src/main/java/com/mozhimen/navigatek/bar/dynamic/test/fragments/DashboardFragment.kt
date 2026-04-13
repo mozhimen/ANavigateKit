@@ -1,8 +1,6 @@
-package com.mozhimen.guidek.fragments
+package com.mozhimen.navigatek.bar.dynamic.test.fragments
 
 import android.util.Log
-import com.mozhimen.basick.basek.BaseKFragment
-import com.mozhimen.basick.basek.BaseKViewModel
 import com.mozhimen.guidek.R
 import com.mozhimen.guidek.annor.GuideKDestination
 import com.mozhimen.guidek.databinding.FragmentGuidekDashboardBinding

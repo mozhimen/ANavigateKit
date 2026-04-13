@@ -1,4 +1,4 @@
-package com.mozhimen.dynavbar
+package com.mozhimen.navigatek.bar.dynamic.core
 
 import android.content.ComponentName
 import androidx.fragment.app.FragmentActivity
@@ -8,14 +8,14 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.NavGraphNavigator
 import androidx.navigation.fragment.DialogFragmentNavigator
-import com.mozhimen.dynavbar.commons.GuideKSelectedListener
-import com.mozhimen.dynavbar.helpers.GuideKHelper
-import com.mozhimen.dynavbar.mos.GuideKPageInfo
-import com.mozhimen.dynavbar.mos.GuideKPkgConfig
-import com.mozhimen.dynavbar.mos.GuideKPkgPage
-import com.mozhimen.uicorek.tabk.bottom.TabKBottomLayout
-import com.mozhimen.uicorek.tabk.bottom.mos.TabKBottomMo
-import com.mozhimen.uicorek.tabk.commons.ITabKLayout
+import com.mozhimen.navigatek.bar.dynamic.core.commons.DynamicSelectedListener
+import com.mozhimen.navigatek.bar.dynamic.core.helpers.DynamicHelper
+import com.mozhimen.navigatek.bar.dynamic.core.mos.DynamicPageInfo
+import com.mozhimen.navigatek.bar.dynamic.core.mos.GuideKPkgConfig
+import com.mozhimen.navigatek.bar.dynamic.core.mos.GuideKPkgPage
+import com.mozhimen.xmlk.layoutk.tab.bottom.LayoutKTabBottom
+import com.mozhimen.xmlk.layoutk.tab.bottom.mos.MTabBottom
+import com.mozhimen.xmlk.layoutk.tab.commons.ITabSelectedListener
 import kotlin.math.abs
 
 /**
@@ -25,7 +25,7 @@ import kotlin.math.abs
  * @Date 2022/4/29 15:24
  * @Version 1.0
  */
-object GuideK {
+object BarDynamic {
     private const val TYPE_ACTIVITY = "activity"
     private const val TYPE_FRAGMENT = "fragment"
     private const val TYPE_DIALOG = "dialog"
@@ -64,24 +64,27 @@ object GuideK {
     fun buildBottomLayout(
         pkgConfig: GuideKPkgConfig,
         defaultIndex: Int = 0,
-        tabKBottomLayout: TabKBottomLayout,
+        tabKBottomLayout: LayoutKTabBottom,
         bottomAlpha: Float = 1f,
-        listener: GuideKSelectedListener? = null
+        listener: DynamicSelectedListener? = null
     ) {
         tabKBottomLayout.setTabBottomAlpha(bottomAlpha)
-        val mos = ArrayList<TabKBottomMo>()
-        val infos = ArrayList<GuideKPageInfo>()
+        val mos = ArrayList<MTabBottom>()
+        val infos = ArrayList<DynamicPageInfo>()
         pkgConfig.pkgPages.forEach {
             mos.add(it.tabKBottomMo)
             infos.add(it.pageInfo)
         }
         if (mos.isNotEmpty()) {
-            tabKBottomLayout.inflateInfo(mos)
+            tabKBottomLayout.inflateTabItem(mos)
             listener?.let {
-                tabKBottomLayout.addTabSelectedChangeListener(object :
-                    ITabKLayout.TabSelectedListener<TabKBottomMo> {
-                    override fun onTabSelected(index: Int, prevMo: TabKBottomMo?, nextMo: TabKBottomMo) {
-                        listener.onSelected(index, infos[index], prevMo, nextMo)
+                tabKBottomLayout.addTabItemSelectedListener(object :
+                    ITabSelectedListener<MTabBottom> {
+                    //                    override fun onTabSelected(index: Int, prevMo: TabKBottomMo?, nextMo: TabKBottomMo) {
+//                        listener.onSelected(index, infos[index], prevMo, nextMo)
+//                    }
+                    override fun onTabItemSelected(index: Int, prevItem: MTabBottom?, currentItem: MTabBottom) {
+                        listener.onSelected(index, infos[index], prevItem, currentItem)
                     }
                 })
             }
@@ -114,8 +117,8 @@ object GuideK {
         val graphNavigator = provider.getNavigator(NavGraphNavigator::class.java)
         val navGraph = NavGraph(graphNavigator)
 
-        val guideKHelper = GuideKHelper(activity, childFragmentManager!!, containerId)
-        provider.addNavigator(guideKHelper)
+        val dynamicHelper = DynamicHelper(activity, childFragmentManager!!, containerId)
+        provider.addNavigator(dynamicHelper)
         while (iterator.hasNext()) {
             val page = iterator.next()
             when (page.pageInfo.destType) {
@@ -126,12 +129,14 @@ object GuideK {
                     node.setComponentName(ComponentName(activity.packageName, page.pageInfo.clazzName))
                     navGraph.addDestination(node)
                 }
+
                 TYPE_FRAGMENT -> {
-                    val node = guideKHelper.createDestination()
+                    val node = dynamicHelper.createDestination()
                     node.id = page.pageInfo.id
                     node.className = page.pageInfo.clazzName
                     navGraph.addDestination(node)
                 }
+
                 TYPE_DIALOG -> {
                     val navigator = provider.getNavigator(
                         DialogFragmentNavigator::class.java
